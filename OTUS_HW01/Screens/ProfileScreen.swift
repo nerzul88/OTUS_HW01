@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileScreen: View {
     
     @State private var textFromTextView: String = ""
+    @State var show = false
     
     var body: some View {
         NavigationView {
@@ -28,6 +29,23 @@ struct ProfileScreen: View {
                 Spacer()
                 Text(textFromTextView)
                 Spacer()
+                Section {
+                    NavigationLink(isActive: $show) {
+                        InstrumentScreen(title: "🎸")
+                    } label: {
+                        
+                    }
+                    Button {
+                        show = true
+                    } label: {
+                        Text("Show guitar")
+                            .font(.title)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
+                }
                 Spacer()
             }
         }
